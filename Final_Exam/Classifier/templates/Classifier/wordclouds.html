@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <h2>WordClouds</h2>
+    <p>The following WordClouds derive from the data used to train the model.</p>
+    <p>With these, we can see which words are the most frequent ones for each of the sentiments.</p>
+    <div class="text-center">
+        <img src="{% static 'Classifier/negative_wordcloud.png' %}" alt="Negative" class="border">
+    </div>
+    <div class="text-center">
+        <img src="{% static 'Classifier/neutral_wordcloud.png' %}" alt="Neutral" class="border">
+    </div>
+    <div class="text-center">
+        <img src="{% static 'Classifier/positive_wordcloud.png' %}" alt="Positive" class="border">
+    </div>
+{% endblock %}

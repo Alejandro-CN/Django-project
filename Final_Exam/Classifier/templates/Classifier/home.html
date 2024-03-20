@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <h2>Homepage</h2>
+
+  {% if user.is_authenticated %}
+    <p>Hi {{ user.username }}, welcome to the site! </p>
+    <p>Check out the features by clicking the links on the menu bar.</p>
+  {% else %}
+    <p>Welcome to the site. Here you will be able to test a sentiment-prediction model with any sentence you provide.</p>
+    <p>Please log in or sign up to use the site's features.</p>
+  {% endif %}
+
+{% endblock %}

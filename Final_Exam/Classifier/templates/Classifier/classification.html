@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Sentiment Prediction App</h2>
+    <form action="{% url 'classifier' %}" method="get">
+        <label for="text">Enter a sentence to predict its sentiment:</label>
+        <input type="text" id="text" name="text" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if predicted_label %}
+    <p>Predicted Label: {{ predicted_label }}</p>
+    {% endif %}
+
+    <h3>Results Table</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Sentence</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in sentence_results %}
+            <tr>
+                <td>{{ entry.sentence }}</td>
+                <td>{{ entry.result }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+{% endblock %}
